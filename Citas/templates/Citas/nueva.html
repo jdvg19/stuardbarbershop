@@ -1,0 +1,75 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %}
+
+<div class="container" style="background-color: white; margin-top: 25px; margin-left: 25px;">
+ <form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div class="row">
+        <h3>FORMULARIO DE AGENDAR CITAS</h3>
+        <div class="col-md-3">
+            <label for="">Nombre del Cliente</label>
+            <input type="text" class="form-control" name="cliente" required maxlength="200">
+        </div>
+       
+        <div class="col-md-3">
+          <label for="">Telefono del Cliente</label>
+          <input type="text" class="form-control" name="tel" required maxlength="8">
+        </div>
+
+        <div class="col-md-3">
+          <label for="">Fecha de Cita</label>
+          <input type="date" class="form-control" name="cita" required>
+        </div>
+
+        <div class="col-md-3">
+          <label for="">Hora de Cita</label>
+          <input type="time" class="form-control" name="hora" required>
+        </div>
+
+        <div class="col-md-3">
+          <label for="">Servicio Solicitado</label>
+          <select name="servicio" class="form-control" required>
+            <option selected>Elija Opcion</option>
+            <option value="Corte de Pelo">Corte de Pelo</option>
+            <option value="Corte de Barba">Corte de Barba</option>
+            <option value="Corte de Pelo y Barba">Corte de Pelo y Barba</option>
+            <option value="Servicio Completo">Servicio Completo</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label for="">Barbero</label>
+          <select name="barbero" class="form-control" required>
+            <option selected>Elija Opcion</option>
+            <option value="Tony Quetzalito">Tony Quetzalito</option>
+            <option value="Esau Edison Loyo">Esau Edison Loyo</option>
+            <option value="Aleatorio">Aleatorio</option>
+          </select>
+        </div>
+       
+    </div><br>
+    <div class="row">
+        <div class="col-md-3" style="margin-left: 35px;"><br>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </div>
+</form>  
+</div>
+
+
+
+
+{% endblock %}

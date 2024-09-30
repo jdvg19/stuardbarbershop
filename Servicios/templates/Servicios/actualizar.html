@@ -1,0 +1,33 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+
+<div class="container" style="background-color: white; margin-top: 25px; margin-left: 25px;">
+ <form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div class="row">
+        <h3>FORMULARIO DE ACTUALIZACION DE SERVICIO</h3>
+        <div class="col-md-3">
+            <label for="">Nombre del Servicio</label>
+            <input type="text" class="form-control" name="nombre" required value="{{s.nombre}}">
+        </div>
+       
+        <div class="col-md-3">
+          <label for="">Tiempo Estimado</label>
+          <input type="number" class="form-control" name="tiempo" required value="{{s.tiempo}}">
+      </div>
+      <div class="col-md-3">
+        <label for="">Precio</label>
+        <input type="number" class="form-control" name="precio" required value="{{s.precio}}">
+    </div>
+    </div>
+        <div class="col-md-3" style="margin-left: 35px;"><br>
+            <button type="submit" class="btn btn-success">Actualizar</button>
+        </div>
+    </div>
+</form>  
+</div>
+
+
+
+{% endblock %}

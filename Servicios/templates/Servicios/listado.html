@@ -1,0 +1,39 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %}
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <td>Nombre</td>
+      <td>Tiempo</td>
+      <td>Precio</td>
+      <td>Accion</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in servicios %}
+    <tr>
+      <td>{{s.nombre}}</td>
+      <td>{{s.tiempo}}</td>
+      <td>Q.{{s.precio}}</td>
+      <td> 
+        <a href="{% url 'UpdateServicio' s.id %}"><box-icon name='edit' animation='tada' flip='horizontal' ></box-icon></a>
+        <a href="{% url 'DeleteServicio' s.id %}"><box-icon name='x-circle' animation='tada' flip='horizontal' ></box-icon></a>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'Base/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %}
+
+<div class="container">
+
+  <div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead>
+            <tr>
+                <td>Cliente</td>
+                <td>Tel</td>
+                <td>Servicio</td>
+                <td>Fecha</td>
+                <td>Hora</td>
+                <td>Estado</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for l in l %}
+            <tr>
+                <td>{{l.cliente}}</td>
+                <td>{{l.tel}}</td>
+                <td>{{l.servicio}}</td>
+                <td>{{l.cita|date:"d-m-Y"}}</td>
+                <td>{{l.hora}}</td>
+                {% if l.estado == 0 %}
+                <td>Esperando Confirmacion</td>
+                {% elif l.estado == 1 %}
+                <td>Confirmada</td>
+                {% else %}
+                <td>Rechazada</td>
+                {% endif %}
+                <td>
+                    {% if l.estado == 0 %}
+                    <a href="{% url 'Confirmar' l.id %}"><box-icon name='check-circle' animation='tada' ></box-icon></a>
+                    <a href="{% url 'Rechazar' l.id %}"><box-icon name='x-circle' animation='tada' flip='horizontal' ></box-icon></a>
+                    {% else %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock %}

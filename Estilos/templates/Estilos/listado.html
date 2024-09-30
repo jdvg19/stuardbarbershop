@@ -1,0 +1,29 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %}
+<div class="container" style="display: grid; grid-template-columns: repeat(4,0.5fr);">
+{% for c in cortes %}
+<div class="card" style="width: 18rem;">
+  <img src="{{c.foto.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{c.nombre}}</h5>
+    <p class="card-text">{{c.descripcion}}</p>
+    <a href="{% url 'UpdateEstilo' c.id %}" class="btn btn-primary">Actualizar Estilo</a>
+    <a href="{% url 'DeleteEstilo' c.id %}" class="btn btn-danger">Eliminar Estilo</a>
+  </div>
+</div>
+{% endfor %}
+<div>
+{% endblock %}

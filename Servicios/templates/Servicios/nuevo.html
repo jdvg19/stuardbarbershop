@@ -1,0 +1,45 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %}
+
+<div class="container" style="background-color: white; margin-top: 25px; margin-left: 25px;">
+ <form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div class="row">
+        <h3>FORMULARIO DE INGRESO NUEVO SERVICIO</h3>
+        <div class="col-md-3">
+            <label for="">Nombre del Servicio</label>
+            <input type="text" class="form-control" name="nombre" required>
+        </div>
+       
+        <div class="col-md-3">
+          <label for="">Tiempo Estimado</label>
+          <input type="number" class="form-control" name="tiempo" required>
+      </div>
+      <div class="col-md-3">
+        <label for="">Precio</label>
+        <input type="number" class="form-control" name="precio" required>
+    </div>
+    </div>
+        <div class="col-md-3" style="margin-left: 35px;"><br>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </div>
+</form>  
+</div>
+
+
+
+{% endblock %}
