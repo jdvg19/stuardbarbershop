@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2024 a las 19:55:47
--- Versión del servidor: 10.4.32-MariaDB
+-- Tiempo de generación: 03-10-2024 a las 19:20:43
+-- Versión del servidor: 11.5.2-MariaDB
 -- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `auth_group` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -42,7 +42,7 @@ CREATE TABLE `auth_group_permissions` (
   `id` bigint(20) NOT NULL,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,7 @@ CREATE TABLE `auth_permission` (
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `auth_permission`
@@ -89,7 +89,15 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (25, 'Can add estilos', 7, 'add_estilos'),
 (26, 'Can change estilos', 7, 'change_estilos'),
 (27, 'Can delete estilos', 7, 'delete_estilos'),
-(28, 'Can view estilos', 7, 'view_estilos');
+(28, 'Can view estilos', 7, 'view_estilos'),
+(29, 'Can add servicios', 8, 'add_servicios'),
+(30, 'Can change servicios', 8, 'change_servicios'),
+(31, 'Can delete servicios', 8, 'delete_servicios'),
+(32, 'Can view servicios', 8, 'view_servicios'),
+(33, 'Can add cita', 9, 'add_cita'),
+(34, 'Can change cita', 9, 'change_cita'),
+(35, 'Can delete cita', 9, 'delete_cita'),
+(36, 'Can view cita', 9, 'view_cita');
 
 -- --------------------------------------------------------
 
@@ -109,7 +117,7 @@ CREATE TABLE `auth_user` (
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -121,7 +129,7 @@ CREATE TABLE `auth_user_groups` (
   `id` bigint(20) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -133,7 +141,32 @@ CREATE TABLE `auth_user_user_permissions` (
   `id` bigint(20) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `citas_cita`
+--
+
+CREATE TABLE `citas_cita` (
+  `id` bigint(20) NOT NULL,
+  `cliente` varchar(250) NOT NULL,
+  `tel` varchar(8) NOT NULL,
+  `cita` date NOT NULL,
+  `hora` time(6) NOT NULL,
+  `servicio` varchar(250) NOT NULL,
+  `barbero` varchar(200) NOT NULL,
+  `fecha` datetime(6) NOT NULL,
+  `estado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `citas_cita`
+--
+
+INSERT INTO `citas_cita` (`id`, `cliente`, `tel`, `cita`, `hora`, `servicio`, `barbero`, `fecha`, `estado`) VALUES
+(1, 'Alfredo Perez', '34456789', '2024-09-30', '15:40:00.000000', 'Corte de Pelo y Barba', 'Tony Quetzalito', '2024-09-30 20:36:21.889234', 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +183,7 @@ CREATE TABLE `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -162,7 +195,7 @@ CREATE TABLE `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `django_content_type`
@@ -173,8 +206,10 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
+(9, 'Citas', 'cita'),
 (5, 'contenttypes', 'contenttype'),
 (7, 'Estilos', 'estilos'),
+(8, 'Servicios', 'servicios'),
 (6, 'sessions', 'session');
 
 -- --------------------------------------------------------
@@ -188,7 +223,7 @@ CREATE TABLE `django_migrations` (
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `django_migrations`
@@ -213,7 +248,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'auth', '0010_alter_group_name_max_length', '2024-09-18 17:27:07.820223'),
 (17, 'auth', '0011_update_proxy_permissions', '2024-09-18 17:27:07.830196'),
 (18, 'auth', '0012_alter_user_first_name_max_length', '2024-09-18 17:27:07.845156'),
-(19, 'sessions', '0001_initial', '2024-09-18 17:27:07.875076');
+(19, 'sessions', '0001_initial', '2024-09-18 17:27:07.875076'),
+(20, 'Servicios', '0001_initial', '2024-09-18 20:55:40.591625'),
+(21, 'Citas', '0001_initial', '2024-09-25 04:51:15.096393');
 
 -- --------------------------------------------------------
 
@@ -225,7 +262,7 @@ CREATE TABLE `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
   `expire_date` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -239,18 +276,37 @@ CREATE TABLE `estilos_estilos` (
   `descripcion` varchar(250) NOT NULL,
   `foto` varchar(100) DEFAULT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `estilos_estilos`
 --
 
 INSERT INTO `estilos_estilos` (`id`, `nombre`, `descripcion`, `foto`, `fecha`) VALUES
-(4, 'Variado', 'fgdsfg', 'estilos/krillin.webp', '2024-09-18'),
 (5, 'Variado', 'fgdsfg', 'estilos/krilin.jpg', '2024-09-18'),
 (6, 'fdg', 'fgdsfg', 'estilos/pexels-eberhardgross-1287089.jpg', '2024-09-18'),
 (7, 'fgfsg', 'gfgdfg', 'estilos/starfield-1920x1080_574994-mm-90.jpg', '2024-09-18'),
 (8, 'tryty', 'ghfgh', 'estilos/wallpaperflare.com_wallpaper.jpg', '2024-09-18');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicios_servicios`
+--
+
+CREATE TABLE `servicios_servicios` (
+  `id` bigint(20) NOT NULL,
+  `nombre` varchar(250) NOT NULL,
+  `tiempo` int(11) NOT NULL,
+  `precio` decimal(4,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `servicios_servicios`
+--
+
+INSERT INTO `servicios_servicios` (`id`, `nombre`, `tiempo`, `precio`) VALUES
+(2, 'Corte de Cabello', 30, 30.00);
 
 --
 -- Índices para tablas volcadas
@@ -302,6 +358,12 @@ ALTER TABLE `auth_user_user_permissions`
   ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
+-- Indices de la tabla `citas_cita`
+--
+ALTER TABLE `citas_cita`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -336,6 +398,12 @@ ALTER TABLE `estilos_estilos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `servicios_servicios`
+--
+ALTER TABLE `servicios_servicios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -355,7 +423,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT de la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user`
@@ -376,6 +444,12 @@ ALTER TABLE `auth_user_user_permissions`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `citas_cita`
+--
+ALTER TABLE `citas_cita`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -385,19 +459,25 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT de la tabla `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `estilos_estilos`
 --
 ALTER TABLE `estilos_estilos`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `servicios_servicios`
+--
+ALTER TABLE `servicios_servicios`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
