@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>{% block title %}{% endblock %}</title>
   <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-  <link rel="icon" href="{% static 'Base/assets/img/kaiadmin/favicon.ico' %}" type="image/x-icon" />
+  <link rel="icon" href="{% static 'icon.ico' %}" type="image/x-icon" />
 
   <!-- CSS Files -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -33,6 +33,17 @@
   
 <main id="main">
   {% block content %}{% endblock %}
+
+  <div class="card">
+    <img src="{% static 'krilin.jpg' %}" alt="...">
+    <div class="card-container">
+      <h4>Juancho</h4>
+      <p>Juancho es gay</p>
+      <a href="#" type="button">Actualizar</a>
+      <a href="#" type="button">Eliminar</a>
+    </div>
+  </div>
+  
 </main>
 
 <footer>

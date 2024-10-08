@@ -16,16 +16,19 @@
 
 
 <div class="container">
+  
 {% for c in cortes %}
-<div class="card" style="width: 18rem;">
-  <img src="{{c.foto.url}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{c.nombre}}</h5>
-    <p class="card-text">{{c.descripcion}}</p>
-    <a href="{% url 'UpdateEstilo' c.id %}" class="btn btn-primary">Actualizar Estilo</a>
-    <a href="{% url 'DeleteEstilo' c.id %}" class="btn btn-danger">Eliminar Estilo</a>
+
+<div class="card">
+  <img src="{{c.foto.url}}" alt="...">
+  <div class="card-container">
+    <h4>{{c.nombre}}</h4>
+    <p>{{c.descripcion}}</p>
+    <a href="{% url 'UpdateEstilo' c.id %}" type="button">Actualizar</a>
+    <a href="{% url 'DeleteEstilo' c.id %}" type="button">Eliminar</a>
   </div>
 </div>
+
 {% endfor %}
 <div>
 {% endblock %}
