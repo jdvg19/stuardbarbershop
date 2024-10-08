@@ -32,10 +32,11 @@
     margin-left: 50px;
 }
 
-#main {
+#openBtn, #main {
     transition: margin-left 1s;
     padding: 16px;
 }
+
 /**/
 .container {
     display: flex;
@@ -44,7 +45,7 @@
 }
 
 .menu-footer {
-    background-color: transparent;
+    background-color: #e1c10d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,6 +57,7 @@
 .menu-icons {
     text-align: center;
     text-decoration: none;
-    padding-right: 15px;
+    padding-right: 2rem;
+    text-decoration: none;
+    color: black;
 }
-
