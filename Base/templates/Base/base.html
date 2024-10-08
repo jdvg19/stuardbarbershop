@@ -19,25 +19,29 @@
 
     <div class="sidenav" id="mySidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">Citas</a>
+      <a href="{% url 'ListadoCita' %}">Citas</a>
       <a href="#">Eventos</a>
       <a href="#">Productos</a>
-      <a href="#">Servicios</a>
+      <a href="{% url 'ListadoServicio'%}">Servicios</a>
       <a href="#">Reportes</a>
     </div>
     
-    <div id="main">
+    <div id="openBtn">
       <span style="font-size: 30px; cursor: pointer;" onclick="openNav()"><i class='bx bx-menu bx-lg'></i></span>
     </div>
   </header>
   
+<main id="main">
+  {% block content %}{% endblock %}
+</main>
+
 <footer>
   <div class="container">
     <div class="menu-footer">
-      <a class="menu-icons" href="#"><i class='bx bx-calendar bx-lg' style="color: black;"></i></a>
-      <a class="menu-icons" href="#"><i class='bx bx-cut bx-lg' style="color: black;"></i></a>
-      <a class="menu-icons" href="#"><i class='bx bx-home bx-lg' style="color: black;"></i></a>
-      <a class="menu-icons" href="#"><i class='bx bx-shopping-bag bx-lg' style="color: black;"></i></a>
+      <a class="menu-icons" href="#"><i class='bx bx-calendar bx-lg' style="color: black;"></i><br>Citas</a>
+      <a class="menu-icons" href="#"><i class='bx bx-spreadsheet bx-lg' style="color: black;"></i><br>Servicios</a>
+      <a class="menu-icons" href="{% url 'Inicio' %}"><i class='bx bx-face bx-lg' style="color: black;"></i><br>Clientes</a>
+      <a class="menu-icons" href="#"><i class='bx bx-cog bx-lg' style="color: black;"></i><br>Configuracion</a>
     </div>
   </div>
 </footer>
