@@ -1,82 +1,115 @@
-.sidenav{
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: gold;
-    overflow: hidden;
-    transition: 1s;
-    padding-top: 60px;
-}
+/** DESKTOP **/
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.sidenav a{
-    text-decoration: none;
-    padding: 8px 8px 8px 32px;
-    font-size: 25px;
-    color: black;
-    display: block;
-    transition: 0.3s;
-}
+    a {
+        text-decoration: none;
+    }
 
-.sidenav a:hover{
-    color: whitesmoke;
-}
+    /** Menu Lateral **/
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #11c189;
+        overflow: hidden;
+        transition: 1s;
+        padding-top: 60px;
+    }
 
-.sidenav .closebtn{
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+    }
 
-#openBtn, #main {
-    transition: margin-left 1s;
-    padding: 16px;
-}
+    .sidenav a:hover {
+        color: whitesmoke;
+    }
 
-/**/
-.container {
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-}
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 
-.menu-footer {
-    background-color: #e1c10d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    #openBtn,
+    #main {
+        transition: margin-left 1s;
+        padding: 16px;
+    }
 
-.menu-icons {
-    text-align: center;
-    text-decoration: none;
-    padding-right: 2rem;
-    text-decoration: none;
-    color: black;
-}
+    /*Menu Inferior*/
+    .container {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+    }
 
-/**Tarjetas**/
-.card{
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 20%;
-}
+    .menu-footer {
+        background-color: #5F9EA0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 
-.card:hover{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+    .menu-icons {
+        text-align: center;
+        text-decoration: none;
+        padding-right: 2rem;
+        text-decoration: none;
+        color: black;
+    }
 
-.card img{
-    width: 200px;
-}
+    /**Tarjetas**/
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 15%;
+    }
 
-.card-container{
-    padding: 2px 16px;
-}
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+        width: 200px;
+    }
+
+    .card-container {
+        padding: 2px 16px;
+    }
+
+    /** Tablas **/
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #04AA6D;
+        color: white;
+    }

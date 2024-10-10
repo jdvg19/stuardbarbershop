@@ -18,6 +18,7 @@
   <header>
 
     <div class="sidenav" id="mySidenav">
+      <img src="{% static 'barbershop.png' %}" alt="..." style="width: 200px;">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="{% url 'ListadoCita' %}">Citas</a>
       <a href="#">Eventos</a>
@@ -25,38 +26,39 @@
       <a href="{% url 'ListadoServicio'%}">Servicios</a>
       <a href="#">Reportes</a>
     </div>
-    
+
     <div id="openBtn">
       <span style="font-size: 30px; cursor: pointer;" onclick="openNav()"><i class='bx bx-menu bx-lg'></i></span>
     </div>
   </header>
-  
-<main id="main">
-  {% block content %}{% endblock %}
 
-  <div class="card">
-    <img src="{% static 'krilin.jpg' %}" alt="...">
-    <div class="card-container">
-      <h4>Juancho</h4>
-      <p>Juancho es gay</p>
-      <a href="#" type="button">Actualizar</a>
-      <a href="#" type="button">Eliminar</a>
-    </div>
-  </div>
-  
-</main>
+  <main id="main">
+    {% block content %}{% endblock %}
 
-<footer>
-  <div class="container">
-    <div class="menu-footer">
-      <a class="menu-icons" href="#"><i class='bx bx-calendar bx-lg' style="color: black;"></i><br>Citas</a>
-      <a class="menu-icons" href="#"><i class='bx bx-spreadsheet bx-lg' style="color: black;"></i><br>Servicios</a>
-      <a class="menu-icons" href="{% url 'Inicio' %}"><i class='bx bx-face bx-lg' style="color: black;"></i><br>Clientes</a>
-      <a class="menu-icons" href="#"><i class='bx bx-cog bx-lg' style="color: black;"></i><br>Configuracion</a>
+    <!--<div class="card">
+      <img src="{% static 'krilin.jpg' %}" alt="...">
+      <div class="card-container">
+        <h4>Juancho</h4>
+        <p>Juancho es gay</p>
+        <a href="#" type="button"><button class="btn-update">Actualizar</button></a>
+        <a href="#" type="button"><button>Eliminar</button></a>
+      </div>
+    </div>-->
+
+  </main>
+
+  <!--<footer>
+    <div class="container">
+      <div class="menu-footer">
+        <a class="menu-icons" href="#"><i class='bx bx-calendar bx-lg' style="color: black;"></i><br>Citas</a>
+        <a class="menu-icons" href="#"><i class='bx bx-spreadsheet bx-lg' style="color: black;"></i><br>Servicios</a>
+        <a class="menu-icons" href="{% url 'Inicio' %}"><i class='bx bx-face bx-lg'
+            style="color: black;"></i><br>Clientes</a>
+        <a class="menu-icons" href="#"><i class='bx bx-cog bx-lg' style="color: black;"></i><br>Configuracion</a>
+      </div>
     </div>
-  </div>
-</footer>
-  <!--Js Files-->    
+  </footer>-->
+  <!--Js Files-->
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script type="text/javascript" src="{% static 'Base/scripts.js' %}"></script>
 </body>

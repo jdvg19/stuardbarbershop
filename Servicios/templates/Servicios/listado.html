@@ -13,13 +13,13 @@
 </script>
 {% endfor %}
 {% endif %}
-<table class="table table-bordered table-hover">
+<table>
   <thead>
     <tr>
-      <td>Nombre</td>
-      <td>Tiempo</td>
-      <td>Precio</td>
-      <td>Accion</td>
+      <th>Nombre</th>
+      <th>Tiempo (Minutos)</th>
+      <th>Precio</th>
+      <th>Accion</th>
     </tr>
   </thead>
   <tbody>
@@ -29,11 +29,11 @@
       <td>{{s.tiempo}}</td>
       <td>Q.{{s.precio}}</td>
       <td> 
-        <a href="{% url 'UpdateServicio' s.id %}"><box-icon name='edit' animation='tada' flip='horizontal' ></box-icon></a>
-        <a href="{% url 'DeleteServicio' s.id %}"><box-icon name='x-circle' animation='tada' flip='horizontal' ></box-icon></a>
+        <a href="{% url 'UpdateServicio' s.id %}"><box-icon name='edit' size="md"></box-icon></a>
+        <a href="{% url 'DeleteServicio' s.id %}"><box-icon name='x-circle' size="md"></box-icon></a>
       </td>
     </tr>
+    {% endfor %}
   </tbody>
-  {% endfor %}
 </table>
 {% endblock %}
