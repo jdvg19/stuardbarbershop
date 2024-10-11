@@ -1,115 +1,158 @@
 /** DESKTOP **/
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
 
-    a {
-        text-decoration: none;
-    }
+body{
+    background-color: #232b2b;
+    color: #ffff;
+}
 
-    /** Menu Lateral **/
-    .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #11c189;
-        overflow: hidden;
-        transition: 1s;
-        padding-top: 60px;
-    }
+a {
+    text-decoration: none;
+}
 
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        font-size: 25px;
-        color: black;
-        display: block;
-        transition: 0.3s;
-    }
+/** Menu Lateral **/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f0f0eb;
+    overflow: hidden;
+    transition: 1s;
+    padding-top: 60px;
+}
 
-    .sidenav a:hover {
-        color: whitesmoke;
-    }
+/**.dropdown-btn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: gold;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}**/
 
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 1rem;
-        font-size: 36px;
-        margin-left: 50px;
-    }
+.sidenav a, .dropdown-btn {
+    padding: 8px 8px 8px 32px;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    background: none;
+    border: none;
+    outline: none;
+}
 
-    #openBtn,
-    #main {
-        transition: margin-left 1s;
-        padding: 16px;
-    }
+.sidenav a:hover,
+.dropdown-btn:hover {
+    color: goldenrod;
+}
 
-    /*Menu Inferior*/
-    .container {
-        display: flex;
-        flex-direction: row;
-        min-height: 100vh;
-    }
+.logo {
+    padding: 8px 5px 8px 0px !important;
+}
 
-    .menu-footer {
-        background-color: #5F9EA0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 36px;
+    margin-left: 50px;
+}
 
-    .menu-icons {
-        text-align: center;
-        text-decoration: none;
-        padding-right: 2rem;
-        text-decoration: none;
-        color: black;
-    }
+#openBtn,
+#main {
+    transition: margin-left 1s;
+    padding: 16px;
+}
 
-    /**Tarjetas**/
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        width: 15%;
-    }
+.dropdown-container {
+    display: none;
+    background-color: #e6e6e1;
+    padding-left: 8px;
+}
 
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    }
+.active {
+    background-color: transparent;
+    color: goldenrod;
+}
 
-    .card img {
-        width: 200px;
-    }
+/*Menu Inferior*/
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
 
-    .card-container {
-        padding: 2px 16px;
-    }
+.menu-footer {
+    background-color: #5F9EA0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
-    /** Tablas **/
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
+.menu-icons {
+    text-align: center;
+    text-decoration: none;
+    padding-right: 2rem;
+    text-decoration: none;
+    color: black;
+}
 
-    th,
-    td {
-        text-align: center;
-        padding: 8px;
-    }
+/**Tarjetas**/
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 15%;
+}
 
-    tr:nth-child(even) {
-        background-color: #f2f2f2
-    }
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
-    th {
-        background-color: #04AA6D;
-        color: white;
-    }
+.card img {
+    width: 200px;
+}
+
+.card-container {
+    padding: 2px 16px;
+}
+
+/** Tablas **/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #707070;
+    border-style: solid;
+    border-color: #e6e6e1;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #555555
+}
+
+th {
+    background-color: #e70707;
+    color: white;
+}

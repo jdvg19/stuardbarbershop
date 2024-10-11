@@ -18,12 +18,20 @@
   <header>
 
     <div class="sidenav" id="mySidenav">
-      <img src="{% static 'barbershop.png' %}" alt="..." style="width: 200px;">
+      <a class="logo" href="#"><img src="{% static 'barbershop.png' %}" alt="..." style="width: 200px;"></a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="{% url 'ListadoCita' %}">Citas</a>
       <a href="#">Eventos</a>
       <a href="#">Productos</a>
       <a href="{% url 'ListadoServicio'%}">Servicios</a>
+      <button class="dropdown-btn">Dropdown
+        <i class='bx bx-chevron-down' size="lg"></i> 
+      </button>
+      <div class="dropdown-container">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
       <a href="#">Reportes</a>
     </div>
 
@@ -59,6 +67,7 @@
     </div>
   </footer>-->
   <!--Js Files-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script type="text/javascript" src="{% static 'Base/scripts.js' %}"></script>
 </body>
