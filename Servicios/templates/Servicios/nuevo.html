@@ -15,31 +15,17 @@
 {% endfor %}
 {% endif %}
 
-<div class="container">
- <form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
+<form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
     <div class="row">
-        <h3>FORMULARIO DE INGRESO NUEVO SERVICIO</h3>
-        <div class="col-md-3">
-            <label for="">Nombre del Servicio</label>
-            <input type="text" class="form-control" name="nombre" required>
-        </div>
-       
-        <div class="col-md-3">
-          <label for="">Tiempo Estimado</label>
-          <input type="number" class="form-control" name="tiempo" required>
-      </div>
-      <div class="col-md-3">
+        <h1>Nuevo Servicio</h1><br>
+        <label for="">Nombre del Servicio</label>
+        <input type="text" name="nombre" required>
+        <label for="">Tiempo Estimado</label>
+        <input type="number" name="tiempo" required>
         <label for="">Precio</label>
-        <input type="number" class="form-control" name="precio" required>
+        <input type="number" name="precio" required>
+        <input type="submit" value="Guardar">
     </div>
-    </div>
-        <div class="col-md-3" style="margin-left: 35px;"><br>
-            <button type="submit" class="btn btn-success">Guardar</button>
-        </div>
-    </div>
-</form>  
-</div>
-
-
+</form>
 
 {% endblock %}

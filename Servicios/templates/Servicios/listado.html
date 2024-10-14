@@ -27,7 +27,7 @@
     <tr>
       <td>{{s.nombre}}</td>
       <td>{{s.tiempo}}</td>
-      <td>Q.{{s.precio}}</td>
+      <td>Q{{s.precio}}</td>
       <td> 
         <a href="{% url 'UpdateServicio' s.id %}"><box-icon name='edit' size="md"></box-icon></a>
         <a href="{% url 'DeleteServicio' s.id %}"><box-icon name='x-circle' size="md"></box-icon></a>
