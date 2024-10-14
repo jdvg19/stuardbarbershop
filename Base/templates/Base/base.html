@@ -9,6 +9,7 @@
   <link rel="icon" href="{% static 'icon.ico' %}" type="image/x-icon" />
 
   <!-- CSS Files -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="{% static 'Base/styles.css' %}" type="text/css">
 
@@ -18,19 +19,28 @@
   <header>
 
     <div class="sidenav" id="mySidenav">
-      <a class="logo" href="#"><img src="{% static 'barbershop.png' %}" alt="..." style="width: 200px;"></a>
+      <a class="logo" href="{% url 'Inicio' %}"><img src="{% static 'barbershop.png' %}" alt="..."
+          style="width: 200px;"></a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="{% url 'ListadoCita' %}">Citas</a>
-      <a href="#">Eventos</a>
-      <a href="#">Productos</a>
-      <a href="{% url 'ListadoServicio'%}">Servicios</a>
-      <button class="dropdown-btn">Dropdown
-        <i class='bx bx-chevron-down' size="lg"></i> 
+      <button class="dropdown-btn">Citas
+        <i class='bx bx-calendar'></i>
       </button>
       <div class="dropdown-container">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="{% url 'ListadoCita' %}">Listado Citas</a>
+        <a href="{% url 'NuevaCita' %}">Agregar Cita</a>
+      </div> <a href="#">Eventos</a>
+      <a href="#">Productos</a>
+      <button class="dropdown-btn">Estilos
+        <i class='bx bx-face'></i> </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListadoEstilo' %}">Listado Estilos</a>
+        <a href="{% url 'NuevoEstilo' %}">Agregar Estilos</a>
+      </div>
+      <button class="dropdown-btn">Servicios
+        <i class='bx bx-customize'></i> </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListadoServicio' %}">Listado Servicios</a>
+        <a href="{% url 'NuevoServicio' %}">Agregar Servicios</a>
       </div>
       <a href="#">Reportes</a>
     </div>
@@ -42,31 +52,18 @@
 
   <main id="main">
     {% block content %}{% endblock %}
-
-    <!--<div class="card">
-      <img src="{% static 'krilin.jpg' %}" alt="...">
-      <div class="card-container">
-        <h4>Juancho</h4>
-        <p>Juancho es gay</p>
-        <a href="#" type="button"><button class="btn-update">Actualizar</button></a>
-        <a href="#" type="button"><button>Eliminar</button></a>
-      </div>
-    </div>-->
-
   </main>
 
-  <!--<footer>
-    <div class="container">
+  <footer>
       <div class="menu-footer">
-        <a class="menu-icons" href="#"><i class='bx bx-calendar bx-lg' style="color: black;"></i><br>Citas</a>
-        <a class="menu-icons" href="#"><i class='bx bx-spreadsheet bx-lg' style="color: black;"></i><br>Servicios</a>
-        <a class="menu-icons" href="{% url 'Inicio' %}"><i class='bx bx-face bx-lg'
-            style="color: black;"></i><br>Clientes</a>
-        <a class="menu-icons" href="#"><i class='bx bx-cog bx-lg' style="color: black;"></i><br>Configuracion</a>
+        <a class="menu-icons" href="#"><i class='bx bx-calendar bx-lg'></i><br>Citas</a>
+        <a class="menu-icons" href="#"><i class='bx bx-spreadsheet bx-lg'></i><br>Servicios</a>
+        <a class="menu-icons" href="{% url 'Inicio' %}"><i class='bx bx-face bx-lg'></i><br>Clientes</a>
+        <a class="menu-icons" href="#"><i class='bx bx-cog bx-lg'></i><br>Configuracion</a>
       </div>
-    </div>
-  </footer>-->
+  </footer>
   <!--Js Files-->
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script type="text/javascript" src="{% static 'Base/scripts.js' %}"></script>
