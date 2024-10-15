@@ -6,7 +6,6 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
     document.getElementById("openBtn").style.hidden = true;
     document.getElementById("main").style.hidden = true;
-    document.getElementById("mySidenav").style.paddingLeft = "6rem";
   } else {
     document.getElementById("mySidenav").style.width = "12em";
     document.getElementById("openBtn").style.hidden = true;
@@ -40,26 +39,50 @@ for (i = 0; i < dropdown.length; i++) {
 //Funcion de la paginación
 $(document).ready(function () {
   $('#data').after('<div id="nav"></div>');
-  let rowsShown = 10;
-  let rowsTotal = $('#data tbody tr').length;
-  let numPages = rowsTotal / rowsShown;
-  for (i = 0; i < numPages; i++) {
-    let pageNum = i + 1;
-    $('#nav').append('<a href="#" rel="' + i + '">' + pageNum + '</a> ');
-  }
-  $('#data tbody tr').hide();
-  $('#data tbody tr').slice(0, rowsShown).show();
-  $('#nav a:first').addClass('active');
-  $('#nav a').bind('click', function () {
+  if (anchoVentana < 768) {
+    let rowsShown = 6;
+    let rowsTotal = $('#data tbody tr').length;
+    let numPages = rowsTotal / rowsShown;
+    for (i = 0; i < numPages; i++) {
+      let pageNum = i + 1;
+      $('#nav').append('<a href="#" rel="' + i + '">' + pageNum + '</a> ');
+    }
+    $('#data tbody tr').hide();
+    $('#data tbody tr').slice(0, rowsShown).show();
+    $('#nav a:first').addClass('active');
+    $('#nav a').bind('click', function () {
 
-    $('#nav a').removeClass('active');
-    $(this).addClass('active');
-    let currPage = $(this).attr('rel');
-    let startItem = currPage * rowsShown;
-    let endItem = startItem + rowsShown;
-    $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-      css('display', 'table-row').animate({ opacity: 1 }, 300);
-  });
+      $('#nav a').removeClass('active');
+      $(this).addClass('active');
+      let currPage = $(this).attr('rel');
+      let startItem = currPage * rowsShown;
+      let endItem = startItem + rowsShown;
+      $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+        css('display', 'table-row').animate({ opacity: 1 }, 300);
+    });
+  }
+  else{
+    let rowsShown = 10;
+    let rowsTotal = $('#data tbody tr').length;
+    let numPages = rowsTotal / rowsShown;
+    for (i = 0; i < numPages; i++) {
+      let pageNum = i + 1;
+      $('#nav').append('<a href="#" rel="' + i + '">' + pageNum + '</a> ');
+    }
+    $('#data tbody tr').hide();
+    $('#data tbody tr').slice(0, rowsShown).show();
+    $('#nav a:first').addClass('active');
+    $('#nav a').bind('click', function () {
+
+      $('#nav a').removeClass('active');
+      $(this).addClass('active');
+      let currPage = $(this).attr('rel');
+      let startItem = currPage * rowsShown;
+      let endItem = startItem + rowsShown;
+      $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+        css('display', 'table-row').animate({ opacity: 1 }, 300);
+    });
+  }
 });
 
 //Funcion para visualizar imagen

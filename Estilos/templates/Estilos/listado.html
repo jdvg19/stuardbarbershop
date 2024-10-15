@@ -13,17 +13,19 @@
 </script>
 {% endfor %}
 {% endif %}
-<div class="container" style="display: grid; grid-template-columns: repeat(4,0.5fr);">
 {% for c in cortes %}
-<div class="card" style="width: 18rem;">
-  <img src="{{c.foto.url}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{c.nombre}}</h5>
-    <p class="card-text">{{c.descripcion}}</p>
-    <a href="{% url 'UpdateEstilo' c.id %}" class="btn btn-primary">Actualizar Estilo</a>
-    <a href="{% url 'DeleteEstilo' c.id %}" class="btn btn-danger">Eliminar Estilo</a>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{c.foto.url}}" alt="...">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{c.nombre}}</h1><br>
+      <p>{{c.descripcion}}</p><br>
+      <a href="{% url 'UpdateEstilo' c.id %}" class="btn-actualizar">Actualizar</a>
+      <a href="{% url 'DeleteEstilo' c.id %}" class="btn-eliminar">Eliminar</a>
+    </div>
   </div>
 </div>
 {% endfor %}
-<div>
 {% endblock %}

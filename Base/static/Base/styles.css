@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -13,14 +12,16 @@ body {
 
 header {
     background-color: #DAA520;
+    width: 100%;
 }
 
 a {
     text-decoration: none;
 }
 
-.contenedor{
+.contenedor {
     margin: 1rem;
+    overflow: scroll;
 }
 
 /** Menu Lateral **/
@@ -54,9 +55,9 @@ a {
     color: #DAA520;
 }
 
-.logo {
-    padding-right: 4rem;
-    width: 200px;
+.sidenav a img{
+    width: 150px;
+    height: 150px;
 }
 
 .sidenav .closebtn {
@@ -68,7 +69,7 @@ a {
 }
 
 #openBtn,
-#main{
+#main {
     transition: margin-left 1s;
 }
 
@@ -85,10 +86,9 @@ a {
 
 /*Menu Inferior*/
 .menu-footer {
-    background-color: #DAA520;
+    background-color: transparent;
     display: flex;
     justify-content: center;
-    align-items: center;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -103,22 +103,69 @@ a {
 }
 
 /**Tarjetas**/
-.card {
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    display: inline-flex;
+
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: 1s;
+    transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 15%;
+
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
-.card img {
-    width: 200px;
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.card-container {
-    padding: 2px 16px;
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: #cacfd2 ;
+    color: #000;
+    transform: rotateY(180deg);
+    align-content: center;
+
+}
+
+.flip-card img{
+    width:300px;
+    height:300px;
+}
+
+.btn-actualizar {
+    background-color: #f39c12;
+    color: #ffff;
+    border-radius: 5px;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+    color: #ffff;
+    border-radius: 5px;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
 }
 
 /** Tablas **/
@@ -154,10 +201,11 @@ th {
 }
 
 input[type=text],
-[type=number], [type=file] {
+[type=number],
+[type=file] {
     width: 100%;
     display: inline-block;
-    padding: 10px 18px;
+    padding: 10px 0;
     border-radius: 5px;
     margin: 8px 0;
     border: none;
@@ -170,7 +218,7 @@ input[type=submit] {
     display: inline-block;
     border: none;
     border-radius: 10px;
-    padding: 14px 19px;
+    padding: 1rem 1rem 1rem 1rem;
 }
 
 input[type=submit]:hover {
