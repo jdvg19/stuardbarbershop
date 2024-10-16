@@ -3,63 +3,31 @@
 
 {% block content %}
 
-<div class="container" style="background-color: white; margin-top: 25px; margin-left: 25px;">
- <form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
-    <div class="row">
-        <h3>FORMULARIO DE ACTUALIZACION CORTE</h3>
-        <div class="col-md-3">
-            <label for="">Nombre del Corte</label>
-            <input type="text" class="form-control" name="nombre" required value="{{e.nombre}}">
-        </div>
-       
-        <div class="col-md-3">
-            <label for="">Foto del Corte</label>
-            <input type="file" class="form-control" name="foto" id="foto" required>
-        </div>
-       
-    </div><br>
-    <div class="row">
-        <div class="col-md-6">
-                <label for="">Descripcion del Corte</label>
-                <input type="text" class="form-control" name="descripcion" required value="{{e.descripcion}}">
-        </div>
-    </div><br>
-    <div class="row">
-      <div class="col-md-3">
-        <img src="{{e.foto.url}}" style="width: 350px; height: 250px; object-fit: cover;">
-      </div>
-        <div class="col-md-3">
-            
-                <img id="imagenPrevisualizacion" style="width: 350px; height: 250px; object-fit: cover;">
-        </div>
-        <div class="col-md-3" style="margin-left: 35px;"><br>
-            <button type="submit" class="btn btn-success">Guardar</button>
-        </div>
+<form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <div class="row">
+    <h1>FORMULARIO DE ACTUALIZACION CORTE</h1><br>
+    <div>
+      <label for="">Nombre del Corte</label>
+      <input type="text" name="nombre" required value="{{e.nombre}}">
     </div>
-</form>  
-</div>
-
-
-<script>
-    const $seleccionArchivos = document.querySelector("#foto"),
-      $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
-  
-    // Escuchar cuando cambie
-    $seleccionArchivos.addEventListener("change", () => {
-      // Los archivos seleccionados, pueden ser muchos o uno
-      const archivos = $seleccionArchivos.files;
-      // Si no hay archivos salimos de la función y quitamos la imagen
-      if (!archivos || !archivos.length) {
-        $imagenPrevisualizacion.src = "";
-        return;
-      }
-      // Ahora tomamos el primer archivo, el cual vamos a previsualizar
-      const primerArchivo = archivos[0];
-      // Lo convertimos a un objeto de tipo objectURL
-      const objectURL = URL.createObjectURL(primerArchivo);
-      // Y a la fuente de la imagen le ponemos el objectURL
-      $imagenPrevisualizacion.src = objectURL;
-    });
-  </script>
+    <div>
+      <label for="">Foto del Corte</label>
+      <input type="file" name="foto" id="foto" required>
+    </div>
+    <div>
+      <label for="">Descripcion del Corte</label>
+      <input type="text" name="descripcion" required value="{{e.descripcion}}">
+    </div>
+    <div>
+      <img src="{{e.foto.url}}" style="width: 200px; height: 200px;">
+    </div>
+    <div>
+      <img id="imagenPrevisualizacion" style="width: 200px; height: 200px;">
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+  </div>
+</form>
 
 {% endblock %}
