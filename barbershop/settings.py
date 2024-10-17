@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Estilos',
     'Servicios',
     'Citas',
+    'Productos',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dbbarbershop',
         'USER': 'root',
-        'PASSWORD': 'Alfca_017',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }

@@ -1,0 +1,34 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %}
+
+<form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div class="row">
+        <h1>Nuevo Producto</h1><br>
+        <label for="">Nombre</label>
+        <input type="text" name="nombre" required>
+        <label for="">Fotografía</label>
+        <input type="file" name="foto" id="foto" required>
+        <label for="">Descripción</label>
+        <input type="text" name="descripcion" required>
+        <label for="">Precio</label>
+        <input type="number" name="precio" required>
+        <img id="imagenPrevisualizacion" style="width: 350px; height: 250px; object-fit: cover;"><br>
+        <input type="submit" value="Guardar">
+    </div>
+</form>
+
+{% endblock %}

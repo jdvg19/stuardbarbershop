@@ -1,0 +1,32 @@
+{% extends 'Base/base.html' %}
+
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<script>
+    Swal.fire({
+        "title": "Informacion Sistema",
+        "text": "{{message}}",
+        "icon": "{{message.tags}}"
+    })
+</script>
+{% endfor %}
+{% endif %} 
+{% for p in producto %}
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{p.foto.url}}" alt="...">
+    </div>
+    <div class="flip-card-back">
+      <h1>{{p.nombre}}</h1><br>
+      <p>{{p.descripcion}}</p><br>
+      <p>{{p.precio}}</p><br>
+      <a href="{% url 'UpdateProducto' p.id %}" class="btn-actualizar">Actualizar</a>
+      <a href="{% url 'DeleteProducto' p.id %}" class="btn-eliminar">Eliminar</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

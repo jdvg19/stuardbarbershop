@@ -22,7 +22,12 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="{% url 'ListadoCita' %}">Citas</a>
       <a href="#">Eventos</a>
-      <a href="#">Productos</a>
+      <button class="dropdown-btn">Productos
+      </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListadoProducto' %}">Listado Productos</a> 
+        <a href="{% url 'NuevoProducto' %}">Agregar Productos</a>
+      </div>
       <button class="dropdown-btn">Servicios
       </button>
       <div class="dropdown-container">

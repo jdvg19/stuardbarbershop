@@ -28,7 +28,7 @@ section::before {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#000, rgb(255, 0, 0), #000);
+  background: linear-gradient(#000, rgb(255, 217, 0), #000);
   animation: animate 5s linear infinite;
 }
 @keyframes animate {
@@ -49,7 +49,7 @@ section span {
   transition: 1.5s;
 }
 section span:hover {
-  background: rgb(170, 0, 0);
+  background: rgb(255, 217, 0);
   transition: 0s;
 }
 
@@ -75,7 +75,7 @@ section .signin .content {
 }
 section .signin .content h2 {
   font-size: 2em;
-  color: rgb(170, 0, 0);
+  color: rgb(255, 217, 0);
   text-transform: uppercase;
   text-align: center;
 }
@@ -127,12 +127,12 @@ section .signin .content .form .inputBox i {
   text-decoration: none;
 }
 .signin .content .form .links a:nth-child(2) {
-  color: rgb(170, 0, 0);
+  color: rgb(255, 217, 0);
   font-weight: 600;
 }
 .signin .content .form .inputBox input[type="submit"] {
   padding: 10px;
-  background: rgb(170, 0, 0);
+  background: rgba(255, 217, 0, 0.76);
   cursor: pointer;
   color: #000;
   font-weight: 600;
