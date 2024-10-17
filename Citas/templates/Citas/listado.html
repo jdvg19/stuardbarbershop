@@ -13,22 +13,36 @@
 </script>
 {% endfor %}
 {% endif %}
-
-
-<div class="container">
-  
-{% for c in cortes %}
-
-<div class="card">
-  <img src="{{c.foto.url}}" alt="...">
-  <div class="card-container">
-    <h4>{{c.nombre}}</h4>
-    <p>{{c.descripcion}}</p>
-    <a href="{% url 'UpdateEstilo' c.id %}" type="button">Actualizar</a>
-    <a href="{% url 'DeleteEstilo' c.id %}" type="button">Eliminar</a>
-  </div>
-</div>
-
-{% endfor %}
-<div>
+<table id="data">
+  <thead>
+    <tr>
+      <th>Cliente</th> 
+      <th>Telefono</th>
+      <th>Servicio</th>
+      <th>Barbero</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Estado</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in citas %}
+    <tr>
+      <td>{{c.cliente}}</td>
+      <td>{{c.tel}}</td>
+      <td>{{c.servicio}}</td>
+      <td>{{c.barbero}}</td>
+      <td>{{c.fecha}}</td>
+      <td>{{c.hora}}</td>
+      <td>{{c.estado}}</td>
+      <td>{{c.accion}}</td>
+      <td> 
+        <a href="{% url 'UpdateCitas' c.id %}"><box-icon name='edit' size="md"></box-icon></a>
+        <a href="{% url 'DeleteCitas' c.id %}"><box-icon name='x-circle' size="md"></box-icon></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

@@ -20,8 +20,16 @@
     <div class="sidenav" id="mySidenav">
       <a href="{% url 'Inicio' %}"><img src="{% static 'barbershop.png' %}" alt="..."></a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="{% url 'ListadoCita' %}">Citas</a>
+
+      <button class="dropdown-btn">Citas
+      </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListadoCita' %}"> Listado Citas </a>
+        <a href="{% url 'NuevaCita' %}"> Nueva Citas </a>
+      </div>
+
       <a href="#">Eventos</a>
+
       <button class="dropdown-btn">Productos
       </button>
       <div class="dropdown-container">
