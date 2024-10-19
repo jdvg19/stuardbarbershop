@@ -13,6 +13,7 @@
 </script>
 {% endfor %}
 {% endif %}
+
 <table id="data">
   <thead>
     <tr>
@@ -30,10 +31,10 @@
     {% for c in citas %}
     <tr>
       <td>{{c.cliente}}</td>
-      <td>{{c.tel}}</td>
+      <td>{{c.tel}}</td> 
       <td>{{c.servicio}}</td>
       <td>{{c.barbero}}</td>
-      <td>{{c.fecha}}</td>
+      <td>{{c.cita|date:"d-m-Y"}}</td>
       <td>{{c.hora}}</td>
       <td>{{c.estado}}</td>
       <td>{{c.accion}}</td>

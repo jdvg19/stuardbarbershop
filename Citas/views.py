@@ -3,7 +3,6 @@ from Citas.models import Cita
 from Estilos.models import Estilos
 from django.contrib import messages
 
-
 def nueva(request):
     
     if request.method == "POST":
@@ -21,28 +20,24 @@ def nueva(request):
 
     return render(request,'Citas/nueva.html')
 
-
-
 def listado(request):
     
-    cortes = Estilos.objects.all()
+    citas = Citas.objects.all()
 
-    return render(request,'Citas/listado.html',{'cortes':cortes})
-
+    return render(request,'Citas/listado.html',{'citas':citas})
 
 def actualizar(request,id):
-    e = Estilos.objects.get(id=id)
+    c = Citas.objects.get(id=id)
 
     if request.method == "POST":
         
-        Estilos.objects.filter(id=id).update(nombre=request.POST['nombre'],descripcion=request.POST['descripcion'],foto=f"estilos/{request.FILES['foto']}")
-        messages.success(request,f'Estilo {e.nombre} Actualizado!')
-        return redirect('ListadoEstilo')
+        Citas.objects.filter(id=id).update(cliente=request.POST['cliente'],telefono=request.POST['tel'],cita=request.POST['cita'])
+        messages.success(request,f'Citas {c.cliente} Actualizado!')
+        return redirect('ListadoCitas')
     
-    return render(request,'Citas/actualizar.html',{'e':e})
-
+    return render(request,'Citas/actualizar.html',{'c':c})
 
 def eliminar(request,id):
-    Estilos.objects.filter(id=id).delete()
-    messages.success(request,f'Estilo Eliminado!')
-    return redirect('ListadoEstilo')
+    Citas.objects.filter(id=id).delete()
+    messages.success(request,f'Cita Eliminada!')
+    return redirect('ListadoCitas')
