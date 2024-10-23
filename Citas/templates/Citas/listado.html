@@ -1,3 +1,11 @@
+<script>
+  import { Calendar } from '@fullcalendar/core'
+  import { formatDate } from '@fullcalendar/core'
+  import timeGridPlugin from '@fullcalendar/timegrid'
+  import dayGridPlugin from '@fullcalendar/daygrid'
+  import momentPlugin from '@fullcalendar/moment';
+</script>
+
 {% extends 'Base/base.html' %}
 
 
@@ -5,14 +13,17 @@
 {% if messages %}
 {% for message in messages %}
 <script>
-    Swal.fire({
-        "title": "Informacion Sistema",
-        "text": "{{message}}",
-        "icon": "{{message.tags}}"
-    })
+  Swal.fire({
+    "title": "Informacion Sistema",
+    "text": "{{message}}",
+    "icon": "{{message.tags}}"
+  })
 </script>
 {% endfor %}
 {% endif %}
+
+
+<div id="calendar"></div>
 
 <table id="data">
   <thead>
@@ -36,14 +47,53 @@
       <td>{{c.barbero}}</td>
       <td>{{c.cita|date:"d-m-Y"}}</td>
       <td>{{c.hora}}</td>
-      <td>{{c.estado}}</td>
-      <td>{{c.accion}}</td>
+      {% if c.estado == 0 %}
+      <td>Pendiente</td>
+      {% else %}
+      <td>Concluida</td>
+      {% endif %}
       <td> 
-        <a href="{% url 'UpdateCitas' c.id %}"><box-icon name='edit' size="md"></box-icon></a>
-        <a href="{% url 'DeleteCitas' c.id %}"><box-icon name='x-circle' size="md"></box-icon></a>
+        <a href="{% url 'UpdateCita' c.id %}"><box-icon name='edit' size="md"></box-icon></a>
+        <a href="{% url 'DeleteCita' c.id %}"><box-icon name='x-circle' size="md"></box-icon></a>
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let calendarUI = document.getElementById('calendar');
+    let calendar = new FullCalendar.Calendar(calendarUI, {
+      timeZone: 'UTC',
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        initialView: 'dayGridMonth',
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      locale: 'es',
+      events: [
+      {% for c in citas %}
+      {% if c.estado == 0 %}
+        {
+        title: '{{c.cliente}}',
+        start: '{{c.reserva_cita}}',
+        end: '{{c.cita_vencimiento}}',
+      },
+      {% endif %}
+      {% endfor %}
+      ],
+      eventTimeFormat: {
+               hour: '2-digit',
+               minute: '2-digit',
+               hour12: true,
+              },
+    });
+  calendar.render();
+  });
+</script>
+
 {% endblock %}
