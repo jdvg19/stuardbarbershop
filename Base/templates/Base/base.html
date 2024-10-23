@@ -10,15 +10,15 @@
 
   <!-- CSS Files -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'fullcalendar/lib/main.css' %}">
   <link rel="stylesheet" href="{% static 'Base/styles.css' %}" type="text/css">
-
 </head>
 
 <body>
   <header>
 
     <div class="sidenav" id="mySidenav">
-      <a href="{% url 'Inicio' %}"><img src="{% static 'barbershop.png' %}" alt="..."></a>
+      <a href="{% url 'Inicio' %}"><img src="{% static 'img/logo.png' %}" alt="..."></a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
       <button class="dropdown-btn">Citas
@@ -75,6 +75,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script type="text/javascript" src="{% static 'Base/scripts.js' %}"></script>
+  <script src="{% static 'fullcalendar/lib/main.js' %}"></script>
 </body>
 
 </html>
