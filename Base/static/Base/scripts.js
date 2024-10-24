@@ -122,3 +122,6 @@ $seleccionArchivos.addEventListener("change", () => {
     // Y a la fuente de la imagen le ponemos el objectURL
     $imagenPrevisualizacion.src = objectURL;
   });
+
+  /* Funcion de horarios y dias de Citas */
+  

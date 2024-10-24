@@ -8,7 +8,6 @@ class Cita(models.Model):
     servicio = models.CharField(max_length=250,blank=False,null=False)
     barbero = models.CharField(max_length=200,blank=False,null=False)
     fecha_reserva = models.DateTimeField(blank=False,null=False,auto_now_add=True)
-    cita_vencimiento = models.DateField(blank=True,null=True,auto_now_add=False, auto_now=False)
     estado = models.IntegerField(blank=False,null=False,default=0)
     reserva_cita = models.CharField(max_length=50, blank=True,null=True)
 

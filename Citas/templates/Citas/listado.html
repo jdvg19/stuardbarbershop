@@ -66,7 +66,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     let calendarUI = document.getElementById('calendar');
     let calendar = new FullCalendar.Calendar(calendarUI, {
-      timeZone: 'UTC',
+      timeZone: 'CST',
       initialView: 'dayGridMonth',
       headerToolbar: {
         initialView: 'dayGridMonth',
@@ -81,7 +81,6 @@
         {
         title: '{{c.cliente}}',
         start: '{{c.reserva_cita}}',
-        end: '{{c.cita_vencimiento}}',
       },
       {% endif %}
       {% endfor %}
