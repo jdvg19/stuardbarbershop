@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Servicios',
     'Citas',
     'Productos',
+    'Reportes',
 ]
 
 MIDDLEWARE = [

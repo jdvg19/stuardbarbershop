@@ -22,9 +22,9 @@ def nuevo(request):
 
 def listado(request):
     
-    producto = Productos.objects.all()
+    productos = Productos.objects.all()
 
-    return render(request,'Productos/listado.html',{'productos':producto})
+    return render(request,'Productos/listado.html',{'productos':productos})
 
 
 def actualizar(request,id):

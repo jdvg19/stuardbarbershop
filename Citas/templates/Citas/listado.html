@@ -35,7 +35,6 @@
       <th>Fecha</th>
       <th>Hora</th>
       <th>Estado</th>
-      <th>Accion</th>
     </tr>
   </thead>
   <tbody>
@@ -52,10 +51,6 @@
       {% else %}
       <td>Concluida</td>
       {% endif %}
-      <td> 
-        <a href="{% url 'UpdateCita' c.id %}"><box-icon name='edit' size="md"></box-icon></a>
-        <a href="{% url 'DeleteCita' c.id %}"><box-icon name='x-circle' size="md"></box-icon></a>
-      </td>
     </tr>
     {% endfor %}
   </tbody>
