@@ -1,0 +1,131 @@
+{% extends 'Base/base.html' %}
+{% block title %}Nuevo Usuario{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="col-md-6">
+    {% if messages %}
+    {% for message in messages %}
+
+    <script>
+        Swal.fire({
+            "title": "Informacion Sistema",
+            "text": "{{message}}",
+            "icon": "{{message.tags}}"
+        })
+    </script>
+
+    {% endfor %}
+    {% endif %}
+</div>
+<br>
+<div class="container-form" style="background-color: white;">
+    <div class="row col-md">
+        <label for="" class="form-label">
+            <h4>REGISTRO DE NUEVO USUARIO</h4>
+        </label>
+    </div>
+    <div class="row col-md">
+        <form method="POST" action="">{% csrf_token %}
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-label">{{form.username.label_tag}}</label>
+                    {{form.username}}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{{form.password.label_tag}}</label>
+                    {{form.password}}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{{form.first_name.label_tag}}</label>
+                    {{form.first_name}}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{{form.last_name.label_tag}}</label>
+                    {{form.last_name}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-label">{{form.email.label_tag}}</label>
+                    {{form.email}}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{{form.rol.label_tag}}</label>
+                    {{form.rol}}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{{form.is_staff.label_tag}}</label>
+                    {{form.is_staff}}
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{{form.is_active.label_tag}}</label>
+                    {{form.is_active}}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{{form.is_superuser.label_tag}}</label>
+                {{form.is_superuser}}
+            </div>&nbsp;
+            <div>
+                <span>Ultimo Usuario Agregado: <button class="btn btn-info btn-sm"
+                        data-swal-template="#my-template">{{usu.username}}</button></span>
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-danger">Cancelar</button>
+            </div>&nbsp;
+        </form>
+    </div>
+</div>
+
+
+<div class="col-md-12">
+    <script>
+        Swal.bindClickHandler()
+
+        Swal.mixin({
+            modal: true,
+            "title": "Informacion <br> {{ultimo.nombre}}",
+            html: ` 
+                    <div class='container'>
+                    <div class='table table-responsive'>
+                        <table class="table">
+                            <thead style='font-size:11px;'>
+                                <tr>
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apelldiso</th>
+                                <th scope="col">Rol</th>
+                                <th scope="col">Ultimo Ingreso</th>
+                                <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody style='font-size:11px;'>
+                                <tr>
+                                <td>{{usu.first_name}}</td>
+                                <td>{{usu.last_name}}</td>
+                                <td>{{usu.rol}}</td>
+                                <td>{{usu.last_login|date:'d-m-Y H:m:s'}}</td>
+                                {% if usu.is_active == 1 %}
+                                <td>Activo</td>
+                                {% else %}
+                                <td>No Activo</td>
+                                {% endif %}
+                                <td><a href="{% url 'UpdateUser' usu.id %}"><button class="btn btn-warning btn-sm"><i
+                                class="fa-solid fa-pencil"></i></button></a></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+            `,
+            "icon": "info"
+        }).bindClickHandler('data-swal-template')
+    </script>
+</div>
+
+
+
+{% endblock %}

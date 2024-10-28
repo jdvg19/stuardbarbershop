@@ -1,7 +1,10 @@
 from django.shortcuts import render,redirect
 from Estilos.models import Estilos
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def nuevo(request):
     
     if request.method == "POST":
@@ -16,12 +19,14 @@ def nuevo(request):
 
     return render(request,'Estilos/nuevo.html')
 
+@login_required
 def listado(request):
     
     cortes = Estilos.objects.all()
 
     return render(request,'Estilos/listado.html',{'cortes':cortes})
 
+@login_required
 def actualizar(request,id):
     e = Estilos.objects.get(id=id)
 
@@ -34,6 +39,7 @@ def actualizar(request,id):
     
     return render(request,'Estilos/actualizar.html',{'e':e})
 
+@login_required
 def eliminar(request,id):
     Estilos.objects.filter(id=id).delete()
     messages.success(request,f'Estilo Eliminado!')

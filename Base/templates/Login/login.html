@@ -19,13 +19,13 @@
       </div>
       <div class="login-form">
 
-        <form action="">
+        <form action="" method="POST" enctype="multipart/form-data">{%csrf_token%}
           <h1 class="login-head">INICIO DE SESION</h1>
           <div class="login-usuario">
             <label for="usuario" class="form-label">
               <h3><i class='bx bxs-user'></i>USUARIO</h3>
             </label>
-            <input type="text" name="usuario" class="form-control" id="usuario" placeholder="Usuario" required
+            <input type="text" name="username" class="form-control" id="username" placeholder="Usuario" required
               autofocus>
           </div>
 
@@ -33,16 +33,41 @@
             <label for="contraseña" class="form-label">
               <h3><i class='bx bxs-lock-open-alt'></i>CONTRASEÑA</h3>
             </label>
-            <input type="password" name="contraseña" class="form-control" id="contraseña" placeholder="Contraseña"
+            <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña"
               required>
           </div>
 
           <div class="login-button">
-            <button>
+            <button type="submit">
               <i class='bx bxs-log-in'></i>
               Ingresar
             </button>
           </div>
+
+          <div class="row">
+                
+            <div class="col-md-12">
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.tags == "success" %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle me-1"></i>
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% else %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-octagon me-1"></i>
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+            
+        </div>
+
         </form>
 
       </div>

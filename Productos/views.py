@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from Productos.models import Productos
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def nuevo(request):
     
     if request.method == "POST":
@@ -20,6 +22,7 @@ def nuevo(request):
 
 
 
+@login_required
 def listado(request):
     
     productos = Productos.objects.all()
@@ -27,6 +30,7 @@ def listado(request):
     return render(request,'Productos/listado.html',{'productos':productos})
 
 
+@login_required
 def actualizar(request,id):
     p = Productos.objects.get(id=id)
 
@@ -39,6 +43,7 @@ def actualizar(request,id):
     return render(request,'Productos/actualizar.html',{'p':p})
 
 
+@login_required
 def eliminar(request,id):
     Productos.objects.filter(id=id).delete()
     messages.success(request,f'Producto Eliminado!')

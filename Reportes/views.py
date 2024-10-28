@@ -6,7 +6,10 @@ from reportlab.platypus import Table,TableStyle
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 import datetime
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def reportepdf(request):
     date = datetime.datetime.now()
     response = HttpResponse(content_type='application/pdf')

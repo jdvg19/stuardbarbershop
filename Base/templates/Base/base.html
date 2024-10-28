@@ -48,7 +48,14 @@
         <a href="{% url 'ListadoEstilo' %}">Listado Estilos</a>
         <a href="{% url 'NuevoEstilo' %}">Agregar Estilos</a>
       </div>
+      <button class="dropdown-btn">Usuarios
+      </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListaUser' %}">Listado Usuarios</a>
+        <a href="{% url 'NuevoUser' %}">Agregar Usuario</a>
+      </div>
       <a href="{% url 'Reporte' %}">Reportes</a>
+      <a href="{% url 'Salir' %}">Salir</a>
     </div>
 
     <div id="openBtn">

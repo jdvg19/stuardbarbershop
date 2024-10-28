@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect
 from Citas.models import Cita
 from Estilos.models import Estilos
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def nueva(request):
     
     if request.method == "POST":
@@ -21,12 +23,14 @@ def nueva(request):
 
     return render(request,'Citas/nueva.html')
 
+@login_required
 def listado(request):
     
     citas = Cita.objects.all()
 
     return render(request,'Citas/listado.html',{'citas':citas})
 
+@login_required
 def actualizar(request,id):
     c = Cita.objects.get(id=id)
 
@@ -38,6 +42,7 @@ def actualizar(request,id):
     
     return render(request,'Citas/actualizar.html',{'c':c})
 
+@login_required
 def eliminar(request,id):
     Cita.objects.filter(id=id).delete()
     messages.success(request,f'Cita Eliminada!')

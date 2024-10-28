@@ -1,0 +1,80 @@
+{% extends 'Base/base.html' %}
+{% block title %}Lista de Usuarios{% endblock %}
+
+{% load static %}
+{% block content %}
+<div class="col-md-6">
+  {% if messages %}
+  {% for message in messages %}
+
+  <script>
+    Swal.fire({
+      "title": "Informacion Sistema",
+      "text": "{{message}}",
+      "icon": "{{message.tags}}"
+    })
+  </script>
+
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+<br>
+<div class="container-table" style="background-color: white;">
+  <h3>Lista de Usuarios</h3>
+  <a type="button" class="btn btn-info" href="{% url 'NuevoUser' %}">Agregar</a>
+  <table id="example" class="table table-striped" style="width: 100%;">
+    <thead>
+      <tr>
+        <th class="dt-center">Usuario</th>
+        <th class="dt-center">Nombres de Usuario</th>
+        <th class="dt-center">Rol de Sistema</th>
+        <th class="dt-center">Acceso a Panel</th>
+        <th class="dt-center">Privilegios Super Usuario</th>
+        <th class="dt-center">Activo</th>
+        <th class="dt-center">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in usuarios %}
+      <tr>
+        <td>{{u.username}}</td>
+        <td>{{u.first_name}} {{u.last_name}}</td>
+        {% if u.is_staff == True %}
+        <td>Si</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+        {% if u.is_superuser == True %}
+        <td>Si</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+        {% if u.is_active == True %}
+        <td>Si</td>
+        {% else %}
+        <td class="table-danger">No</td>
+        {% endif %}
+        {% if u.is_active == True %}
+        <td>Activo</td>
+        {% else %}
+        <td>No Activo</td>
+        {% endif %}
+        <td>
+          <a href="{% url 'UpdateUser' u.username %}" class="btn btn-warning">Editar</a>
+          |
+          <a href="{% url 'DeleteUser' u.username %}" class="btn btn-danger">Borrar</a>
+        </td>
+      </tr>
+      {% empty %}
+      <caption>NO HAY DATOS</caption>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}

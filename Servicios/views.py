@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from Servicios.models import Servicios
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def nuevo(request):
     
     if request.method == "POST":
@@ -18,7 +20,7 @@ def nuevo(request):
     return render(request,'Servicios/nuevo.html')
 
 
-
+@login_required
 def listado(request):
     
     servicios = Servicios.objects.all()
@@ -26,6 +28,7 @@ def listado(request):
     return render(request,'Servicios/listado.html',{'servicios':servicios})
 
 
+@login_required
 def actualizar(request,id):
     s = Servicios.objects.get(id=id)
 
@@ -38,6 +41,7 @@ def actualizar(request,id):
     return render(request,'Servicios/actualizar.html',{'s':s})
 
 
+@login_required
 def eliminar(request,id):
     
     Servicios.objects.filter(id=id).delete()
