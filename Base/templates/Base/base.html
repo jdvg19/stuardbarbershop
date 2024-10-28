@@ -18,9 +18,10 @@
   <header>
 
     <div class="sidenav" id="mySidenav">
+      <h5 style="color: goldenrod; padding-left: 2rem;">Bienvenido: {{user.rol}}</h5>
       <a href="{% url 'Inicio' %}"><img src="{% static 'img/logo.png' %}" alt="..."></a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
+      {% if user.rol == "admin" %}
       <button class="dropdown-btn">Citas
       </button>
       <div class="dropdown-container">
@@ -55,6 +56,18 @@
         <a href="{% url 'NuevoUser' %}">Agregar Usuario</a>
       </div>
       <a href="{% url 'Reporte' %}">Reportes</a>
+      {% else %}
+      <button class="dropdown-btn">Productos
+      </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListadoProducto' %}">Listado Productos</a> 
+      </div>
+      <button class="dropdown-btn">Estilos
+      </button>
+      <div class="dropdown-container">
+        <a href="{% url 'ListadoEstilo' %}">Listado Estilos</a>
+      </div>
+      {% endif %}
       <a href="{% url 'Salir' %}">Salir</a>
     </div>
 

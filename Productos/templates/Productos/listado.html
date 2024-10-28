@@ -23,8 +23,10 @@
       <h1>{{p.nombre}}</h1><br>
       <p>{{p.descripcion}}</p><br>
       <p>Q{{p.precio}}</p><br>
+      {% if user.rol == "admin" %}
       <a href="{% url 'UpdateProducto' p.id %}" class="btn-actualizar">Actualizar</a>
       <a href="{% url 'DeleteProducto' p.id %}" class="btn-eliminar">Eliminar</a>
+      {% endif %}
     </div>
   </div>
 </div>

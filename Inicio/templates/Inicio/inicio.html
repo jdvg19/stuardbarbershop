@@ -18,6 +18,7 @@
 {% endfor %}
 {% endif %}
 
+  {% if user.rol == "admin" %}
 <table id="data">
     <thead>
       <tr>
@@ -56,5 +57,9 @@
         {% endfor %}
     </tbody>
   </table>
+  
+  {% else %}
+  <h1 algin="center">BIENVENIDOS</h1>
 
+  {% endif %}
 {% endblock %}
