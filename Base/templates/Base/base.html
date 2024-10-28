@@ -57,6 +57,11 @@
       </div>
       <a href="{% url 'Reporte' %}">Reportes</a>
       {% else %}
+      <button class="dropdown-btn">Citas
+      </button>
+      <div class="dropdown-container">
+        <a href="{% url 'NuevaCita' %}"> Nueva Citas </a>
+      </div>
       <button class="dropdown-btn">Productos
       </button>
       <div class="dropdown-container">
