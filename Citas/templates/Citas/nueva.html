@@ -28,7 +28,7 @@
     <input type="date" name="cita" id="myDateInput" required>
 
     <label for="">Hora de Cita</label>
-    <input type="time">
+    <input type="time" name="hora">
 
     <label for="">Servicio Solicitado</label>
     <select name="servicio" required>
@@ -52,8 +52,8 @@
 </form>
 
 <script>
-  /* Solo muestra los 30 dias posteriores */
-  const [today] = new Date().toISOString().split('T');
+/* Solo muestra los 30 dias posteriores */
+const [today] = new Date().toISOString().split('T');
 
 const maxDate = new Date();
 maxDate.setDate(maxDate.getDate() + 30);
